@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+      <div class="rounded p-4 shadow-lg m-2">
+        <div class="title mb-2">
+          <h4 class="lh">All Calculators</h4>
+          <span class="border"></span>
+        </div>
+        <div class="row">
+        <div class="col-lg-6 my-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h4 class="card-title">Grade Evaluator</h4>
+              <p class="card-text text-justify">Enter your assignment scores, end term exams scores and know your grade</p>
+              <a href="/grade" class="btn btn-primary">Calculate your grade</a>
+            </div>
+          </div>
+          </div>
+          <div class="col-lg-6 my-2">
+          <div class="card text-center">
+            <div class="card-body">
+              <h4 class="card-title">Term Passing marks Calculator</h4>
+              <p class="card-text text-justify">Enter your average quiz scores and know how much marks do you need to pass end term exams.</p>
+              <a href="/endterm" class="btn btn-primary">Calculate minimum marks to pass end term exam</a>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+{% block visitor %}
+  {{visitors}}
+{% endblock %}

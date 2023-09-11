@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="row align-items-center g-lg-5 py-5">
+          <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">IITM Term Passing Marks Calculator</h1>
+            <p class="col-lg-10 fs-4">This is a program that calculates the minimum marks you need in the final exam to pass the course.</p>
+          </div>
+          <div class="col-md-10 mx-auto col-lg-5">
+            {% if data.calculated == True %}
+            <div class="alert alert-success" role="alert">
+              {% if data.marks_required > 0 %}
+              You need at least {{data.marks_required}}% in the final exam to pass the course.<br>
+              {% else %}
+                You just need to attend the final exam. You need at least 0 marks to pass the course.<br>
+              {% endif %}
+              Wishing you all the best, {{data.name}}!<br>Abki bar phod dena 🥳 🥳
+            </div>
+            {% endif %}
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="get" action="/calculate">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" placeholder="John Doe" name="name" value="{{data.name}}">
+                <label for="name">Your Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" max="100" min="0" step="0.01" class="form-control" id="quiz1" placeholder="Quiz 1 marks" name="quiz1" required value="{{data.quiz1}}">
+                <label for="quiz1">Your score in quiz 1 (%)</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" max="100" min="0" step="0.01" class="form-control" id="quiz2" placeholder="Quiz 2 marks" name="quiz2" required value="{{data.quiz2}}">
+                <label for="quiz2">Your score in quiz 2 (%)</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Calculate</button>
+            </form>
+          </div>
+        </div>
+{% endblock %}
+{% block visitor %}
+  {{visitors}}
+{% endblock %}

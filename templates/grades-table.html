@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        font-family: "Baloo 2", sans-serif;
+    }
+
+    table {
+        border: #eee;
+    }
+
+    table.result {
+        /*border-collapse: collapse;*/
+        display: inline-block;
+        text-align: center;
+    }
+
+    table.result td {
+        text-align: center;
+        width: 10em;
+        padding: 1em;
+    }
+
+    table.result th {
+        padding: 1em;
+        color: white;
+    }
+
+    table.result tr {
+        height: 1em;
+    }
+
+    table.result tr:nth-child(even) {
+        background-color: #e9e9e9;
+    }
+
+    table.result tr:nth-child(odd) {
+        background-color: #fafafa;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        table.result tr:nth-child(even) {
+            background-color: #292929;
+        }
+
+        table.result tr:nth-child(odd) {
+            background-color: #1d1d1d;
+        }
+    }
+</style>
+<div class="title mb-3">
+    <h3 class="lh">Grade Evaluator <sup class="text-info"><small>(Beta)</small></sup></h3>
+    <span class="border"></span>
+</div>
+<div class="row">
+    <div class="col-lg-8 col-md-12 card shadow-lg rounded-2 p-5">
+        <table class="result" id="scores">
+            <tbody>
+                <tr class="bg-primary">
+                    <th>Subject
+                    </th>
+                    <th>Score
+                    </th>
+                    <th>Grade
+                    </th>
+                    <th>Point
+                    </th>
+                </tr>
+                {% for item in subjects %}
+                <tr>
+                    <td>{{item.subject}}</td>
+                    <td>{{item.total_score}}</td>
+                    <td>{{item.grade}}</td>
+                    <td>{{item.point}}</td>
+                </tr>
+                {% endfor %}
+                <tr class="bg-secondary">
+                    <td colspan="3">GPA</td>
+                    <td>{{gpa}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr class="mb-3">
+        <small class="text-muted">This tool is based on <a href="https://param302.bio.link/" target="_blank"
+                rel="noopener noreferrer">Parampreet Singh</a>'s <a
+                href="https://github.com/Param302/IITM-BS-score-Calculator" target="_blank"
+                rel="noopener noreferrer">IITM-BS score Calculator</a></small>
+
+    </div>
+</div>
+{% endblock %}
+{% block visitor %}
+{{visitors}}
+{% endblock %}

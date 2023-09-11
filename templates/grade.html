@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row p-2">
+      <div class="col-12 col-lg-8">
+        <div class="title mb-3">
+          <h3 class="lh">Grade Evaluator <sup class="text-info"><small>(Beta)</small></sup></h3>
+          <span class="border"></span>
+        </div>
+        <div class="card p-4">
+          <form id="form" autocomplete="off" method="post">
+            <div class="mb-3">
+              <label for="numCourses" class="form-label">Number of subjects</label>
+              <input type="number" min="1" max="4" step="1" class="form-control" name="num_courses" id="numCourses"/>
+            <small class="text-danger" id="numCoursesMsg"></small>
+            </div>
+            <div id="subjects"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <hr class="mb-3">
+          <small class="text-muted">This tool is based on <a href="https://param302.bio.link/" target="_blank" rel="noopener noreferrer">Parampreet Singh</a>'s <a href="https://github.com/Param302/IITM-BS-score-Calculator" target="_blank" rel="noopener noreferrer">IITM-BS score Calculator</a></small>
+        </div>
+      </div>
+    </div>
+
+  <script src="/static/js/grade.js"></script>
+{% endblock %}
+{% block visitor %}
+  {{visitors}}
+{% endblock %}

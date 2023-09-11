@@ -1,0 +1,29 @@
+.title{
+    width: fit-content;
+    height:fit-content;
+    display: inline-block;
+}
+span.border{
+    display: inline-block;
+    height: 0.45rem;
+    width: 65%;
+    border-radius: 5px;
+    background: #fff;
+}
+.lh{
+    line-height: 0;
+}
+a{
+    text-decoration: none;
+}
+.card{
+    background: #000;
+}
+@media (prefers-color-scheme: light) {
+    span.border{
+        background: #303031;
+    }
+    .card{
+        background: #f4f4f4;
+    }
+  }

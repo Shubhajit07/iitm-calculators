@@ -1,0 +1,71 @@
+<style>
+    body {
+        font-family: "Baloo 2", sans-serif;
+    }
+
+    table {
+        border: #eee;
+    }
+
+    table.result {
+        margin-bottom: 3em;
+        border-collapse: collapse;
+        display: inline-block;
+        margin-right: 3em;
+        text-align: center;
+    }
+
+    table.result td {
+        text-align: center;
+        width: 10em;
+        padding: 1em;
+    }
+
+    table.result th {
+        padding: 1em;
+        color: white;
+    }
+
+    table.result tr {
+        height: 1em;
+    }
+
+    table.result tr:nth-child(even) {
+        background-color: #eee;
+    }
+
+    table.result tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+        table.result tr:nth-child(even) {
+            background-color: #292929;
+        }
+    
+        table.result tr:nth-child(odd) {
+            background-color: #1d1d1d;
+        }
+    }
+</style>
+<table class="result">
+    <tbody>
+        <tr class="bg-primary">
+            <th>Subject
+            </th>
+            <th>Score
+            </th>
+            <th>Grade
+            </th>
+            <th>Point
+            </th>
+        </tr>
+        {% for item in subjects %}
+        <tr>
+            <td>{{item.subject}}</td>
+            <td>{{item.total_score}}</td>
+            <td>{{item.grade}}</td>
+            <td>{{item.point}}</td>
+        </tr>    
+        {% endfor %}
+    </tbody>
+</table>
